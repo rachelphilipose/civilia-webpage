@@ -1,9 +1,9 @@
 import logo from './logo.svg';
-import fs from 'fs';
 import './App.css';
 import React from 'react';
 import 'bulma/css/bulma.min.css';
 import {Navbar, Image, Container, Icon, Dropdown, Section, Form, Block, Box, Heading, Button } from 'react-bulma-components'
+import routes from '/Users/rachelphilipose/my-Dev/civillia-webpage/civilia-webpage/my-app/src/gfts assets/routes.json';
 
 
 
@@ -11,10 +11,8 @@ import {Navbar, Image, Container, Icon, Dropdown, Section, Form, Block, Box, Hea
 
 
 function App() {
-  const routes = {route1: "hello",
-                  route2: "bonjour",
-                  route3: "hola"}
-  
+
+console.log(routes);
 
   return (
     <div >
@@ -53,13 +51,19 @@ function App() {
 <Section>
   <Box>
     <Heading> Routes </Heading>
-    {/* NEED TO FID DROPDOWN ICON, CURRENTLY NOTHING SHOWING*/}
+    {/* NEED TO FIND DROPDOWN ICON, CURRENTLY NOTHING SHOWING*/}
     <Dropdown 
     label= "Click to Browse Routes"
     
     icon={<Icon><i aria-hidden="true" className="fas fa-angle-down"/></Icon>}>
 
-
+      {routes.map ( (value) =>
+       <Dropdown.Item
+       renderAs="a"
+       value= "item"
+       >
+        {value.route_long_name}
+      </Dropdown.Item> )}
     </Dropdown>
 
 
