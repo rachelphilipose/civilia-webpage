@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
+import {useState} from 'react';
 import 'bulma/css/bulma.min.css';
 import {Navbar,Notification, Card, Image, Container, Icon, Dropdown, Section, Form, Columns, Block, Box, Heading, Button } from 'react-bulma-components'
 import routes from '/Users/rachelphilipose/my-Dev/civillia-webpage/civilia-webpage/my-app/src/gfts assets/routes.json';
@@ -12,7 +13,15 @@ import routes from '/Users/rachelphilipose/my-Dev/civillia-webpage/civilia-webpa
 
 function App() {
 
-console.log(routes);
+//console.log(routes);
+
+const [routeInfo, setRouteInfo] = useState("Click to Learn More");
+
+//console.log(routeInfo);
+
+function onClickRoute (route) {
+  setRouteInfo("Info about " + route) 
+};
 
   return (
   
@@ -58,16 +67,20 @@ console.log(routes);
     <Columns>
     
     <Columns.Column className= "is-one-third">
-      
+
     <Dropdown
     label= "Click to Browse Routes"
+    onChange={(e)=> onClickRoute(e)}
     
-    icon={<Icon><i aria-hidden="true" className="fas fa-angle-down"/></Icon>}>
+    
+    >
 
       {routes.map ( (value) =>
        <Dropdown.Item
        renderAs="a"
-       value= "item"
+       value= {value.route_long_name}
+       
+       
        >
         {value.route_long_name}
       </Dropdown.Item> )}
@@ -86,7 +99,7 @@ console.log(routes);
       <Block >
         <Notification color = "success">
 
-          Click on a Route to Learn More
+          {routeInfo}
 
         </Notification>
       </Block>
