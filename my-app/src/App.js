@@ -15,12 +15,12 @@ function App() {
 
 //console.log(routes);
 
-const [routeInfo, setRouteInfo] = useState("Click to Learn More");
+const [routeInfo, setRouteInfo] = useState();
 
 //console.log(routeInfo);
 
 function onClickRoute (route) {
-  setRouteInfo("Info about " + route) 
+  setRouteInfo(route) 
 };
 
   return (
@@ -98,8 +98,26 @@ function onClickRoute (route) {
 
       <Block >
         <Notification color = "success">
+          
 
-          {routeInfo}
+          
+          {routeInfo ? <Block>
+            <h3> {routeInfo} </h3>
+            <li >
+              Stops: 
+            </li>
+            <li>
+              Times:
+            </li>
+            <li>
+              Hours of Operation:
+            </li>
+            <li>
+              Frequency of Run:
+            </li>
+            </Block>
+          
+          : <Heading subtitle> Click to Learn More</Heading>}
 
         </Notification>
       </Block>
@@ -110,6 +128,14 @@ function onClickRoute (route) {
 
     </Columns>
 
+  </Box>
+</Section>
+
+<Section>
+  <Box>
+    <Heading>
+      Contact Waterloo Transit
+    </Heading>
   </Box>
 </Section>
 
