@@ -3,6 +3,7 @@ import './App.css';
 import React from 'react';
 import {useState} from 'react';
 import 'bulma/css/bulma.min.css';
+import DropdownA from 'react-bulma-dropdown'
 import {Navbar,Notification, Card, Image, Container, Icon, Dropdown, Section, Form, Columns, Block, Box, Heading, Button } from 'react-bulma-components'
 import routes from '/Users/rachelphilipose/my-Dev/civillia-webpage/civilia-webpage/my-app/src/gfts assets/routes.json';
 
@@ -69,14 +70,17 @@ function onClickRoute (route) {
     <Columns.Column className= "is-one-third">
 
     <Dropdown
+    
     label= "Click to Browse Routes"
     onChange={(e)=> onClickRoute(e)}
     
     
+    
     >
-
+      <div className= "App-dropdown-menu">
       {routes.map ( (value) =>
        <Dropdown.Item
+       
        renderAs="a"
        value= {value.route_long_name}
        
@@ -84,6 +88,7 @@ function onClickRoute (route) {
        >
         {value.route_long_name}
       </Dropdown.Item> )}
+      </div>
 
       
 
@@ -138,6 +143,7 @@ function onClickRoute (route) {
     </Heading>
   </Box>
 </Section>
+
 
 
 

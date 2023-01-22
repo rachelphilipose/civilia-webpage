@@ -44,3 +44,15 @@
     transform: rotate(360deg);
   }
 }
+
+.App-dropdown-menu {
+  height:100px;
+  list-style: none;
+  padding:0px;
+  overflow-Y:scroll;
+}
+
+.App.dropdown-content {
+  max-height: 13em;
+  overflow: auto;
+}
